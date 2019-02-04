@@ -1,0 +1,2 @@
+endpoint: https://us1.prisma.sh/pepispizza/pepis-pizza/dev
+datamodel: datamodel.prisma
