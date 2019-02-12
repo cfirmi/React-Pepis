@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import Header from '../components/Header';
 
 const Dessert = props => (
-    <div>
-        <p>Desserts Page</p>
-
-    </div>
+  <div>
+    <Header />
+    <p>Desserts Page</p>
+  </div>
 );
 
 export default Dessert;0

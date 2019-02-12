@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   margin: 0;
-  padding: 0;
+  padding: 0 4vw;
   display: flex;
-  justify-self: end;
-  font-size: 1.5rem;
+  justify-content: space-around;
+  /* justify-self: end; */
+  width: 100vw;
+  font-size: 1.3rem;
+  letter-spacing: 0.4px;
+  background: ${props => props.theme.black};
   a,
   button {
     padding: 1rem 3rem;
@@ -19,6 +23,7 @@ const NavStyles = styled.ul`
     border: 0;
     cursor: pointer;
     color: white;
+  
     @media (max-width: 700px) {
       font-size: 10px;
       padding: 0 10px;
@@ -26,20 +31,17 @@ const NavStyles = styled.ul`
     &:before {
       content: '';
       width: 2px;
-      /* background: ${props => props.theme.lightgrey}; */
       height: 10%;
       left: 0;
       position: absolute;
       transform: skew(-20deg);
-      top: 45px;
+      top: 20px;
       bottom: 0;
     }
     &:after {
       height: 2px;
-      /* background: ${props => props.theme.orange};; */
       content: '';
       width: 0;
-
       position: absolute;
       transform: translateX(-50%);
       transition: width 0.4s;
@@ -56,12 +58,7 @@ const NavStyles = styled.ul`
       }
     }
   }
-  @media (max-width: 1300px) {
-    /* border-top: 1px solid ${props => props.theme.lightgrey}; */
-    width: 100%;
-    justify-content: center;
-    font-size: 1.5rem;
-  }
+
 `;
 
 export default NavStyles;

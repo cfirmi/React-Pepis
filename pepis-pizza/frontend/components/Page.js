@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
 import Meta from './Meta';
-import Header from './Header';
+// import Header from './Header';
 
 const theme = {
   orange: '#ff7000',
@@ -20,10 +20,6 @@ const StyledPage = styled.div`
   color: #ffffff;
 `;
 const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};;
-  margin: 0 auto;
-  
-  padding: 2rem;
   background: red;
 `;
 
@@ -48,8 +44,8 @@ body {
   font-size: 1.5rem;
   line-height: 2;
   height: 100vh;
-  overflow: none;
-  font-family: 'radnika_next';
+  overflow-x: hidden;
+  /* font-family: 'radnika_next'; */
   a {
     text-decoration: none;
     color: ${theme.offWhite};
@@ -63,7 +59,7 @@ export default class Page extends Component {
       <ThemeProvider theme={theme}>
         <StyledPage>
           <Meta />
-          <Header />
+          {/* <Header /> */}
           <Inner>
             {this.props.children}
           </Inner>

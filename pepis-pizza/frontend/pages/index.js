@@ -1,12 +1,39 @@
-import Link from 'next/link';
+import styled from 'styled-components';
+import Header from '../components/Header';
+
+const PagesOuterBox = styled.div`
+  width: 100vw;
+  overflow-x: hidden; 
+  background: red;
+`;
+const AllContent = styled.div`
+  width: 100vw;
+  background: red;
+  div {
+    margin-top: 10vh;
+  }
+`;
+const ExampleData = styled.div`
+  height: 500px;
+  background: green;
+`;
 
 
-const Home = props => (
-    <div>
-        <p>index.js or exported as Home page.
-          we want to show a grid: <br/> spot one will be for pizza specials 
-        </p>
-    </div>
+
+const Home = () => (
+  <PagesOuterBox>
+    <Header />
+    <AllContent>
+      <div>
+        <ExampleData>
+          this is sample1
+        </ExampleData>
+        <ExampleData>
+          this is sample2
+        </ExampleData>
+      </div>
+    </AllContent>
+  </PagesOuterBox>
 );
 
 export default Home;

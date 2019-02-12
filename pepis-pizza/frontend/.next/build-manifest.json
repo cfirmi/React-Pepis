@@ -10,6 +10,26 @@
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/subs": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/wingThings": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/drinks": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }
