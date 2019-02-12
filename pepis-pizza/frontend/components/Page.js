@@ -15,18 +15,20 @@ const theme = {
 };
 
 const StyledPage = styled.div`
-  /* height: 100vh; */
   background: ${props => props.theme.black};
+  position: absolute;
+  top: 0;
+  height: 100vh; width: 100vw;
   color: #ffffff;
 `;
 const Inner = styled.div`
-  background: red;
+  /* background: red; */
 `;
 
 injectGlobal`
 @font-face {
-  font-family: 'radnika_next';
-  src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+  font-family: 'Poppins', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
   font-weight: normal;
   font-style: normal;
 
@@ -45,7 +47,7 @@ body {
   line-height: 2;
   height: 100vh;
   overflow-x: hidden;
-  /* font-family: 'radnika_next'; */
+  font-family: 'Poppins';
   a {
     text-decoration: none;
     color: ${theme.offWhite};

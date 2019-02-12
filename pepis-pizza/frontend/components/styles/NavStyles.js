@@ -17,13 +17,33 @@ const NavStyles = styled.ul`
     align-items: center;
     position: relative;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 600;
+    letter-spacing: 0.8px;
     font-size: 1em;
     background: none;
     border: 0;
     cursor: pointer;
     color: white;
-  
+      :hover {
+        color: grey;
+        transition: 0.25s ease-in-out;
+      }
+    }
+    a {
+      color: white;
+      height: 100px;
+      text-align: center;
+      padding: 10px 15px;
+      ::selection {
+      background: ${props => props.theme.orange}; /* WebKit/Blink Browsers */
+    }
+    ::-webkit-selection {
+      background: ${props => props.theme.orange}; 
+    }
+    ::-moz-selection {
+      background: ${props => props.theme.orange}; 
+    }
+    }
     @media (max-width: 700px) {
       font-size: 10px;
       padding: 0 10px;

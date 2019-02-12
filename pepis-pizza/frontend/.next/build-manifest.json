@@ -11,23 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/pizzas": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/subs": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/wingThings": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/drinks": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/": [
+    "/signup": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
