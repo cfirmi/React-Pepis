@@ -18,7 +18,7 @@ const MobileNav = () => (
         <span></span>
         <span></span>
     </NavHamburger>
-    <Link href='/homepage'>
+    <Link href='/index'>
       <a>
         <StyleLogo src={Logo} alt=""/>
       </a>
