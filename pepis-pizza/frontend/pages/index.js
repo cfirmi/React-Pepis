@@ -9,9 +9,10 @@ const PagesOuterBox = styled.div`
 const AllContent = styled.div`
   width: 100vw;
   background: red;
-  div {
-    margin-top: 10vh;
-  }
+  margin-top: 12vh; 
+  @media (max-width: ${props => props.theme.maxWidth}) {
+    margin-top: 0vh;
+  };
 `;
 const ExampleData = styled.div`
   height: 500px;

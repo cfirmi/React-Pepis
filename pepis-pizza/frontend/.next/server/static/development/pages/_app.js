@@ -262,7 +262,7 @@ var MobileDropNav = function MobileDropNav() {
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "#",
+      href: "/pizza",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
@@ -281,7 +281,7 @@ var MobileDropNav = function MobileDropNav() {
       },
       __self: this
     }, "Pizza"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "#",
+      href: "/subs",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 35
@@ -300,7 +300,7 @@ var MobileDropNav = function MobileDropNav() {
       },
       __self: this
     }, "Subs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "#",
+      href: "/wingthings",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 42
@@ -319,7 +319,7 @@ var MobileDropNav = function MobileDropNav() {
       },
       __self: this
     }, "Wings & Things"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-      href: "#",
+      href: "/salads",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 49
@@ -337,7 +337,45 @@ var MobileDropNav = function MobileDropNav() {
         lineNumber: 51
       },
       __self: this
-    }, "Wings & Things")))));
+    }, "Salads"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/desserts",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 56
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 57
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(NavItems, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58
+      },
+      __self: this
+    }, "Desserts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: "/drinks",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 64
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(NavItems, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65
+      },
+      __self: this
+    }, "Drinks")))));
   });
 };
 
@@ -358,7 +396,9 @@ var NavDropStyle = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.
 var NavItems = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "MobileDropNav__NavItems",
   componentId: "ygkw6o-2"
-})(["margin-left:50%;transform:translateX(-50%);text-align:left;border-bottom:0.5px solid rgba(255,255,255,0.49);width:90%;line-height:43px;color:white;font-weight:300;letter-spacing:0.55px;:hover{color:black;}"]);
+})(["margin-left:50%;transform:translateX(-50%);text-align:left;border-bottom:0.5px solid rgba(255,255,255,0.49);width:90%;line-height:43px;color:white;font-weight:300;letter-spacing:0.55px;:hover{color:", ";}"], function (props) {
+  return props.theme.orange;
+});
 var NavBox = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.div.withConfig({
   displayName: "MobileDropNav__NavBox",
   componentId: "ygkw6o-3"

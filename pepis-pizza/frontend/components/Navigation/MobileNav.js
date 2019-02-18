@@ -18,7 +18,7 @@ const MobileNav = () => (
         <span></span>
         <span></span>
     </NavHamburger>
-    <Link href='/homepage'>
+    <Link href='/index'>
       <a>
         <StyleLogo src={Logo} alt=""/>
       </a>
@@ -42,7 +42,7 @@ const NavStyles = styled.div`
 const StyleLogo = styled.img`
   position: absolute;
   height: 65px;
-  top: 2vh;
+  top: 1.5vh;
   border-radius: 10px;
   margin-left: 25px;
   z-index: 10;

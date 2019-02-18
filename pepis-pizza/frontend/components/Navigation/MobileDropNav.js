@@ -25,31 +25,45 @@ const MobileDropNav = () => (
         <img src={Logo} alt=""/>
         </LogoBox>
         <NavBox>
-          <Link href='#'>
+          <Link href='/pizza'>
             <a>
               <NavItems>
                     Pizza
               </NavItems>
             </a>
           </Link>
-          <Link href='#'>
+          <Link href='/subs'>
             <a>
               <NavItems>
                     Subs
               </NavItems>
             </a>
           </Link> 
-          <Link href='#'>
+          <Link href='/wingthings'>
             <a>
               <NavItems>
                     Wings & Things
               </NavItems>
             </a>
           </Link>
-          <Link href='#'>
+          <Link href='/salads'>
             <a>
               <NavItems>
-                    Wings & Things
+                    Salads
+              </NavItems>
+            </a>
+          </Link>
+          <Link href='/desserts'>
+            <a>
+              <NavItems>
+                    Desserts
+              </NavItems>
+            </a>
+          </Link>
+          <Link href='/drinks'>
+            <a>
+              <NavItems>
+                    Drinks
               </NavItems>
             </a>
           </Link>
@@ -94,7 +108,7 @@ const NavItems = styled.div`
   font-weight: 300;
   letter-spacing: 0.55px;
   :hover {
-    color: black;
+    color: ${props => props.theme.orange};
   }
 `;
 

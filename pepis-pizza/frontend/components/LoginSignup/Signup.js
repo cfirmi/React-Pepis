@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import Link from 'next/link';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+
+const backbutton = '../../static/images/backbtn.svg';
 
 const loading = keyframes`
   from {
@@ -18,28 +21,44 @@ const loading = keyframes`
   label {
     display: block;
     margin-bottom: 1rem;
+    p {
+      color: whitesmoke;
+      /* background: red; */
+      width: 50%;
+      margin-left: 25%;
+      /* transform: translateX(-50%); */
+    }
   }
   input,
   textarea,
   select {
-    width: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    background: ${props => props.theme.black};
+    width: 50%;
     padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid black;
+    font-size: 1.5rem;
+    border: transparent;
+    border-bottom: 1px solid ${props => props.theme.grey};
     &:focus {
       outline: 0;
-      border-color: ${props => props.theme.red};
     }
+  
   }
   button,
   input[type='submit'] {
     width: auto;
-    background: red;
+    background: ${props => props.theme.orange};
+    margin-left: 50%;
+    transform: translateX(-50%);
     color: white;
     border: 0;
-    font-size: 2rem;
-    font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    white-space: nowrap;
+    border-radius: 20px;
+    padding: 1rem 10rem;
   }
   fieldset {
     border: 0;
@@ -50,6 +69,10 @@ const loading = keyframes`
     }
     &::before {
       height: 10px;
+      margin-top: 10vh;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
       content: '';
       display: block;
       background-image: linear-gradient(to right, #ff3019 0%, #e2b04a 50%, #ff3019 100%);
@@ -59,6 +82,17 @@ const loading = keyframes`
       animation: ${loading} 0.5s linear infinite;
     }
   }
+ `;
+
+ const BackNav = styled.div`
+  height: 50px;
+  /* background: red; */
+ `;
+
+ const BackButton = styled.img`
+  /* background: blue; */
+  margin-left: 20px; margin-top: 15px;
+  width: 20px; height: 20px; 
  `;
 
  const SIGNUP_MUTATION = gql`
@@ -82,41 +116,64 @@ const loading = keyframes`
   }
    render() {
      return (
-  <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
-    {(signup, { error, loading }) => (
-      <Form>
-        <fieldset disabled={loading} aria-busy={loading}>
-          <label htmlFor="email"> 
-            Email
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="email" 
-              value={this.state.email} 
-              onChange={this.saveToState} />
-          </label>
-          <label htmlFor="name">
-            Name
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="name" 
-              value={this.state.name} 
-              onChange={this.saveToState} />
-          </label>
-          <label htmlFor="password">
-            Password
-            <input 
-              type="password" 
-              name="password" 
-              placeholder="password" 
-              value={this.state.password} 
-              onChange={this.saveToState}/>
-          </label>
-        </fieldset>
-      </Form>)
-     }
-  </Mutation>
+      <div>
+        <BackNav>
+          <Link href="/index">
+          <a>
+            <BackButton src={backbutton} alt="backbtn"/>
+          </a>
+          </Link>
+        </BackNav>
+        <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
+          {(signup, { error, loading }) => (
+            <Form 
+            method="post"
+            onSubmit={ async e => {
+              e.preventDefault();
+              await signup();
+              this.setState({name: '', email: '', password: ''})
+            }}
+            >
+              <fieldset disabled={loading} aria-busy={loading}>
+                <label htmlFor="email"> 
+                  <p>
+                    Email
+                  </p>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="email" 
+                    value={this.state.email} 
+                    onChange={this.saveToState} />
+                </label>
+                <label htmlFor="name">
+                  <p>
+                    Name
+                  </p>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="name" 
+                    value={this.state.name} 
+                    onChange={this.saveToState} />
+                </label>
+                <label htmlFor="password">
+                  <p>
+                    Password
+                  </p>
+                  <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="password" 
+                    value={this.state.password} 
+                    onChange={this.saveToState}/>
+                </label>
+                <button type="submit">Sign Up!</button>
+              </fieldset>
+            </Form>)
+          }
+        </Mutation>
+      </div>
      )
    }
  }
