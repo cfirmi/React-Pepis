@@ -23,9 +23,10 @@ const loading = keyframes`
     margin-bottom: 1rem;
     p {
       color: whitesmoke;
-      /* background: red; */
       width: 50%;
       margin-left: 25%;
+      margin-bottom: -5px;
+      /* background: red; */
       /* transform: translateX(-50%); */
     }
   }
@@ -43,6 +44,7 @@ const loading = keyframes`
     border-bottom: 1px solid ${props => props.theme.grey};
     &:focus {
       outline: 0;
+      border-bottom: 1px solid ${props => props.theme.offWhite};
     }
   
   }
@@ -53,7 +55,7 @@ const loading = keyframes`
     margin-left: 50%;
     transform: translateX(-50%);
     color: white;
-    border: 0;
+    border: 20px;
     font-size: 1.5rem;
     font-weight: 400;
     white-space: nowrap;
@@ -61,7 +63,7 @@ const loading = keyframes`
     padding: 1rem 10rem;
   }
   fieldset {
-    border: 0;
+    border: 20px;
     padding: 0;
 
     &[disabled] {
@@ -93,6 +95,22 @@ const loading = keyframes`
   /* background: blue; */
   margin-left: 20px; margin-top: 15px;
   width: 20px; height: 20px; 
+ `;
+ const SignInLink = styled.p`
+  font-weight: 200;
+  letter-spacing: 0.6px;
+  text-align: center;
+    
+  a {
+    line-height: 15px;
+    padding: 10px 15px;
+      ::selection {
+    background: ${props => props.theme.orange}; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+      background: ${props => props.theme.orange}; /* Gecko Browsers */
+    }
+  }
  `;
 
  const SIGNUP_MUTATION = gql`
@@ -173,6 +191,14 @@ const loading = keyframes`
             </Form>)
           }
         </Mutation>
+        <p style={{textAlign: "center", color: "#FF7000"}}>OR</p>
+        <SignInLink> 
+          <Link href="/index">
+          <a>
+            Sign In 🍕  
+          </a>
+          </Link>
+        </SignInLink>
       </div>
      )
    }
