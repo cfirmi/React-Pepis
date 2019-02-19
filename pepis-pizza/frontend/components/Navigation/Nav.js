@@ -6,6 +6,15 @@ const pepisLogo = '../static/images/pepisLogo.png';
 
 const Image = styled.img`
   height: 80px;
+  ::selection {
+      background: ${props => props.theme.orange}; /* WebKit/Blink Browsers */
+    }
+    ::-webkit-selection {
+      background: ${props => props.theme.orange}; 
+    }
+    ::-moz-selection {
+      background: ${props => props.theme.orange}; 
+    }
 `;
 
 const Nav = () => (

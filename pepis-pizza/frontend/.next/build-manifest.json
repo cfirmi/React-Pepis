@@ -11,6 +11,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+<<<<<<< HEAD
     "/signup": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
@@ -19,6 +20,12 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
+=======
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
     "/": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"

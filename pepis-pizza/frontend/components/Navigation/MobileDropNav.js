@@ -38,8 +38,13 @@ const MobileDropNav = () => (
                     Subs
               </NavItems>
             </a>
+<<<<<<< HEAD
           </Link> 
           <Link href='/wingthings'>
+=======
+          </Link>
+          <Link href='/wingThings'>
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
             <a>
               <NavItems>
                     Wings & Things
@@ -56,14 +61,22 @@ const MobileDropNav = () => (
           <Link href='/desserts'>
             <a>
               <NavItems>
+<<<<<<< HEAD
                     Desserts
+=======
+              desserts
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
               </NavItems>
             </a>
           </Link>
           <Link href='/drinks'>
             <a>
               <NavItems>
+<<<<<<< HEAD
                     Drinks
+=======
+              drinks
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
               </NavItems>
             </a>
           </Link>

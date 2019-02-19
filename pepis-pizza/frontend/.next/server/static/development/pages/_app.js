@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/christian/Desktop/pepispizza/Pepis-React/pepis-pizza/frontend/components/Meta.js";
+var _jsxFileName = "/Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/components/Meta.js";
 
 
 
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "/Users/christian/Desktop/pepispizza/Pepis-React/pepis-pizza/frontend/components/Navigation/MobileDropNav.js";
+var _jsxFileName = "/Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/components/Navigation/MobileDropNav.js";
 
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n  mutation {\n    toggleDrop @client\n  }\n"]);
@@ -300,7 +300,11 @@ var MobileDropNav = function MobileDropNav() {
       },
       __self: this
     }, "Subs"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+<<<<<<< HEAD
       href: "/wingthings",
+=======
+      href: "/wingThings",
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
       __source: {
         fileName: _jsxFileName,
         lineNumber: 42
@@ -356,7 +360,11 @@ var MobileDropNav = function MobileDropNav() {
         lineNumber: 58
       },
       __self: this
+<<<<<<< HEAD
     }, "Desserts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+=======
+    }, "desserts"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
       href: "/drinks",
       __source: {
         fileName: _jsxFileName,
@@ -375,7 +383,11 @@ var MobileDropNav = function MobileDropNav() {
         lineNumber: 65
       },
       __self: this
+<<<<<<< HEAD
     }, "Drinks")))));
+=======
+    }, "drinks")))));
+>>>>>>> 4988bb4349a636df166e32e8164f70f30134591e
   });
 };
 
@@ -421,7 +433,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
-var _jsxFileName = "/Users/christian/Desktop/pepispizza/Pepis-React/pepis-pizza/frontend/components/Page.js";
+var _jsxFileName = "/Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/components/Page.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -633,7 +645,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.js");
 
-var _jsxFileName = "/Users/christian/Desktop/pepispizza/Pepis-React/pepis-pizza/frontend/pages/_app.js";
+var _jsxFileName = "/Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/pages/_app.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }

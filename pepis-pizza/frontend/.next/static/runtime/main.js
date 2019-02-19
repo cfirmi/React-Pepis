@@ -5604,7 +5604,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/christian/Desktop/pepispizza/pepispizza/Pepis-React/pepis-pizza/frontend/.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/.next");
       return error;
     }
   };
@@ -18074,7 +18074,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/christian/Desktop/pepispizza/Pepis-React/pepis-pizza/frontend/node_modules/next/dist/client/next-dev */"./node_modules/next/dist/client/next-dev.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/pepispizza/pepispizza/React-Pepis/pepis-pizza/frontend/node_modules/next/dist/client/next-dev */"./node_modules/next/dist/client/next-dev.js");
 
 
 /***/ }),
