@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import AdminNav from '../../components/Admin/Navigation/AminNav';
+import AdminNav from '../../components/Admin/Navigation/AdminNav';
 
 const NavComp = styled.div`
   position: absolute;

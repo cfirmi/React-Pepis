@@ -1,7 +1,7 @@
 import withApollo from 'next-with-apollo';
 import ApolloClient from 'apollo-boost';
 import { endpoint } from '../config';
-import { LOCAL_STATE_QUERY } from '../components/Navigation/MobileDropNav';
+import { LOCAL_STATE_QUERY } from '../components/User/Navigation/MobileDropNav';
 // import { LOCAL_STATE_QUERY } from '../components/Navigation/SmallNav';
 
 function createClient({ headers }) {
