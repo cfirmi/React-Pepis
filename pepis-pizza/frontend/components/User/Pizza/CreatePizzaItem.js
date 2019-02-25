@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
-import formatMoney from '../../../lib/formatMoney';
-import Form from '../../styles/Form';
+import Form from '../styles/Form';
 import DropDownCategory from '../../DropDownCategory';
 
  class CreatePizzaItem extends Component {

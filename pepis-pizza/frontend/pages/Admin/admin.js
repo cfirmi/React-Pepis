@@ -23,10 +23,22 @@ const NavComp = styled.div`
   }
 `;
 
+const Naver = styled.div`
+  position: absolute;
+  background: red;
+`;
+const OuterBox = styled.div`
+  position: absolute;
+  top: 0px; left: 80px;
+  width: 100vw; height: 100%;
+  background: red;
+`;
+
 const Admin = props => (
-  <div>
+  <Naver>
     <AdminNav></AdminNav>
-  </div>
+    <OuterBox>This is the content for everything</OuterBox>
+  </Naver>
 );
 
 export default Admin;

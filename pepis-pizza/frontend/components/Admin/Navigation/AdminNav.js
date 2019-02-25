@@ -14,7 +14,7 @@ const openNavIcon = '../../../static/images/Admin/NavIcons/openIcon.png';
 const NavComp = styled.div`
   background: ${props => props.theme.blue};
   position: absolute;
-  /* height: 100vh; */
+  height: 100vh;
   width: 80px;
   margin: 0;
   top: 0px;
@@ -27,18 +27,20 @@ const NavComp = styled.div`
   li {
     /* background: purple; */
     line-height: 70px;
-    height: 70px;
+    height: 70px; 
     margin: 10px 10px;
+    border-radius: 30px;
     cursor: pointer;
     img {
-      margin-left: 50%;
+      margin-top: 25%; margin-left: 50%; 
       transform: translateX(-50%);
-      height: 50px;
-      width: 60px;
+      height: 40px;
+      width: 40px;
+      transition: 0.5s ease-in;
+      border: 1px solid transparent;
     }
     :hover {
-      border-color: darkblue;
-      box-shadow: ${props => props.theme.bs2};
+      transition: 0.25s ease-in;
     }
   }
 `;
@@ -47,7 +49,7 @@ const AdminNav = props => (
   <div>
     <NavComp>
       <ul>
-        <Link href="/pizzaCreate">
+        <Link href="/Admin/pizza">
           <li><img src={pizzaNavIcon} alt=""/></li>
         </Link>
         <Link href="/pizzaCreate">

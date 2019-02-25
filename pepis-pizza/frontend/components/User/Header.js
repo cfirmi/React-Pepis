@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import Nav from '../Navigation/Nav';
-import MobileNav from '../Navigation/MobileNav';
-import DropDown from '../Navigation/MobileDropNav';
+import Nav from '../User/Navigation/Nav';
+import MobileNav from '../User/Navigation/MobileNav';
+import DropDown from '../User/Navigation/MobileDropNav';
 
 
 Router.onRouteChangeStart = () => {
