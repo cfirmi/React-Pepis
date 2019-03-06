@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 import Header from '../components/User/Header';
+import OrderOnline from '../components/User/Home/OrderOnline';
+import Specials from '../components/User/Home/Specials';
 
 const PagesOuterBox = styled.div`
+  /* background: red; */
   width: 100vw;
   overflow-x: hidden; 
-  background: red;
 `;
 const AllContent = styled.div`
-  width: 100vw;
-  background: red;
+  width: 100%;
   margin-top: 12vh; 
   @media (max-width: ${props => props.theme.maxWidth}) {
     margin-top: 0vh;
   };
 `;
 const ExampleData = styled.div`
-  height: 500px;
   background: green;
+  height: 500px;
 `;
 
 
@@ -26,12 +27,8 @@ const Home = () => (
     <Header />
     <AllContent>
       <div>
-        <ExampleData>
-          this is sample1
-        </ExampleData>
-        <ExampleData>
-          this is sample2
-        </ExampleData>
+        <OrderOnline></OrderOnline>
+        <Specials></Specials>
       </div>
     </AllContent>
   </PagesOuterBox>

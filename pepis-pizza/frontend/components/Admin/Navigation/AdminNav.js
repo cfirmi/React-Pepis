@@ -12,23 +12,20 @@ const locationNavIcon = '../../../static/images/Admin/NavIcons/locationIcon.png'
 const openNavIcon = '../../../static/images/Admin/NavIcons/openIcon.png';
 
 const NavComp = styled.div`
-  background: ${props => props.theme.blue};
   position: absolute;
-  height: 100vh;
-  width: 80px;
-  margin: 0;
+  background: black;
+  width: 100vw;
   top: 0px;
+  z-index: 2;
   ul {
-    /* background: black; */
-    list-style: none;
-    margin-left: -40px;
-    margin-top: 50%;
+    display: flex;
+    justify-content: space-around;
   }
   li {
     /* background: purple; */
+    display: inline-block;
     line-height: 70px;
     height: 70px; 
-    margin: 10px 10px;
     border-radius: 30px;
     cursor: pointer;
     img {
@@ -38,9 +35,6 @@ const NavComp = styled.div`
       width: 40px;
       transition: 0.5s ease-in;
       border: 1px solid transparent;
-    }
-    :hover {
-      transition: 0.25s ease-in;
     }
   }
 `;
@@ -79,9 +73,6 @@ const AdminNav = props => (
 
       </ul>
     </NavComp>
-    <p>Admin Pages
-      Looking at doing a vertical Nav on the left side
-    </p>
   </div>
 );
 

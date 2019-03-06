@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import AdminNav from '../../components/Admin/Navigation/AdminNav';
+import PizzaAdmin from './pizza';
 
 const NavComp = styled.div`
-  position: absolute;
   background: red;
+  position: absolute;
   height: 100vh;
   width: 300px;
   margin: 0;
-  top: 0px;
   ul {
     margin-top: 100px;
     background: black;
@@ -25,7 +25,7 @@ const NavComp = styled.div`
 
 const Naver = styled.div`
   position: absolute;
-  background: red;
+  width: 100vw;
 `;
 const OuterBox = styled.div`
   position: absolute;
@@ -36,8 +36,8 @@ const OuterBox = styled.div`
 
 const Admin = props => (
   <Naver>
-    <AdminNav></AdminNav>
-    <OuterBox>This is the content for everything</OuterBox>
+    <AdminNav />
+    <PizzaAdmin />
   </Naver>
 );
 

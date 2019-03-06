@@ -10,7 +10,8 @@ const theme = {
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
   offWhite: '#EDEDED',
-  maxWidth: '1000px',
+  mobileWidth1: '1000px',
+  mobileWidth2: '700px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0, 0.9)',
   bs2: '0 12px 12px 0 #ff700070',
 };

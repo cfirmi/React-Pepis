@@ -16,3 +16,4 @@ type User {
   resetTokenExpiry: Float
   permissions: [Permission]
 }
+
