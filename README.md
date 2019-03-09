@@ -1,6 +1,10 @@
 # Pepis Pizza
 
 ## Admin
+**Pizza**
+* [] Create Size item
+* [] Create Style item
+* [] 
 
 ## LoginSignUp
 * [x] Create User
