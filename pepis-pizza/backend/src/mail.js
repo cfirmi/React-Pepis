@@ -14,13 +14,16 @@ const makeANiceEmail = text => `
     border: 1px solid black;
     padding: 20px;
     font-family: sans-serif;
-    line-height: 2;
-    font-size: 20px;
   ">
-    <h2>Hello There!</h2>
+  <div  style=" background: #FF7000; height: 100px; display: grid; grid-template-rows: 65px 40px; grid-gap: 0px;">
+    <h1 style="color: white; text-align: center; line-height: 45px; font-size: 53px; ">Pepi's Pizza</h1>
+    <h3 style=" color: black; text-align: center; line-height: 30px; font-size: 13px;">est. 1961</h3>
+  </div>
+  <h3>Password Reset</h3>
     <p>${text}</p>
 
-    <p>😘, Wes Bos</p>
+    <p>Pepi's Pizza.</p>
+    <p>The Best Pizza and Subs 😘🍕</p>
   </div>
 `;
 

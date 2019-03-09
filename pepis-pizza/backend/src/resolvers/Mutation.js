@@ -80,9 +80,19 @@ async signup(parent, args, ctx, info) {
       where: { email: args.email },
       data: { resetToken, resetTokenExpiry },
     });
-    console.log(res);
-    return { message: 'Thanks!' };
     // 3. Email them that reset token
+    const mailRes = await transport.sendMail({
+      from: 'christian@pepispizza.ca',
+      to: user.email,
+      subject: 'Pepi\'s PizzsYour Password Reset ' ,
+      html: makeANiceEmail(`<h2 style="text-align: center;">${user.name}, Here is the reset button!</h2>
+      <br>
+      <a href="${process.env
+        .FRONTEND_URL}/reset?resetToken=${resetToken}">
+        <button style="margin-left: 50%; transform: translateX(-50%); border: 1px solid transparent; padding: 5px 55px; background: #ff7000; height: 45px; border-radius: 0px; color: white; font-size: 17px; ">Click Me</button>
+      </a>`),
+    });
+    return { message: 'Thanks!' };
   },
 
     // Reset the Password

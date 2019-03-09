@@ -34,11 +34,11 @@ const OuterBox = styled.div`
   background: red;
 `;
 
-const Admin = props => (
+const AdminHomePage = props => (
   <Naver>
     <AdminNav />
     <PizzaAdmin />
   </Naver>
 );
 
-export default Admin;
+export default AdminHomePage;
