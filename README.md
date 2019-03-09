@@ -1,5 +1,22 @@
 # Pepis Pizza
 
+## Admin
+
+## LoginSignUp
+* [x] Create User
+* [x] Login
+* [x] Sign In
+* [x] Sign Up
+* [x] Sign Out
+* [x] Reset
+* [x] Forgot Password
+* [ ] Create Admin User
+
+
+## User
+
+
+
 ## Navigation Component
 **Desktop** 
 *  [x] Admin
@@ -7,12 +24,9 @@
 **Mobile**  
 *  [x] User
 
-## Create Account (Sign-In & Sign-Up)
-* [x] User
-* [ ] Admin
 
 ## Homepage
-* [] Login Section
+* [x] Login/Sign up Comp
 * [] Order Online Section
 * [] Coupon Section (3)
 * [] Merch. History Section
@@ -31,3 +45,6 @@
 ... more to be here ie Locations 
 
 
+## Backend
+
+* [x] Email User Reset Token 

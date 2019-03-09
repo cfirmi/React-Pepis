@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import User from '../User';
 
  const SignupDiv = styled.div`
   /* background: red; */
@@ -23,22 +24,30 @@ import styled from 'styled-components'
  `;
 
 const ToSignupComp = () => (
-  <SignupDiv>
-    <Link href="./signup">
-      <a>
-        <div>
-          Sign Up
-        </div>
-      </a>
-    </Link>
-    <Link href="./signin">
-      <a>
-        <div className="signin">
-          Sign In
-        </div>
-      </a>
-    </Link>
-  </SignupDiv>
+  <User>
+    {({data: { me } }) => ( 
+      <SignupDiv>
+        {!me && (
+          <>
+          <Link href="./signup">
+            <a>
+              <div>
+                Sign Up
+              </div>
+            </a>
+          </Link>
+          <Link href="./signin">
+            <a>
+              <div className="signin">
+                Sign In
+              </div>
+            </a>
+          </Link>
+          </>
+        )}
+      </SignupDiv>
+    )}
+  </User>
 )
 
 export default ToSignupComp;

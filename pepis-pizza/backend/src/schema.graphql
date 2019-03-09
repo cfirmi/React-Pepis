@@ -1,4 +1,5 @@
 # import * from './generated/prisma.graphql'
+
 type SuccessMessage {
   message: String
 }
@@ -19,5 +20,5 @@ type User {
   id: ID!
   name: String!
   email: String!
-  # permissions: [Permissions!]!
+  permissions: [Permission!]!
 }
