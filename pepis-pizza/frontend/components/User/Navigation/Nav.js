@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import NavStyles from '../styles/NavStyles';
+import User from '../User';
 
 const pepisLogo = '../static/images/pepisLogo.png';
 
@@ -18,28 +19,40 @@ const Image = styled.img`
 `;
 
 const Nav = () => (
-  <NavStyles>
-    <Link href="/pizzas">
-        <a>Pizza</a>
-    </Link>
-    <Link href="/subs">
-        <a>Subs</a>
-    </Link>
-    <Link href="/wingThings">
-        <a>Wings & Things</a>
-    </Link>
-    <Link href="/index">
-        <a><Image src={pepisLogo} alt=""/></a>
-    </Link>
-    <Link href="/salads">
-        <a>Salads</a>
-    </Link>
-    <Link href="/desserts">
-        <a>Desserts</a>
-    </Link>
-    <Link href="/drinks">
-        <a>Drinks</a>
-    </Link>
-  </NavStyles>
+  <User>
+    {({data: { me } }) => (
+      <NavStyles>
+      <Link href="/pizzas">
+          <a>Pizza</a>
+      </Link>
+      <Link href="/subs">
+          <a>Subs</a>
+      </Link>
+      <Link href="/wingThings">
+          <a>Wings & Things</a>
+      </Link>
+      <Link href="/index">
+          <a><Image src={pepisLogo} alt=""/></a>
+      </Link>
+      <Link href="/salads">
+          <a>Salads</a>
+      </Link>
+      <Link href="/desserts">
+          <a>Desserts</a>
+      </Link>
+      <Link href="/drinks">
+          <a>Drinks</a>
+      </Link>
+      {me && (
+        <Link href="/account">
+        <a>
+          {me.name}
+        </a>
+      </Link>
+      )}
+    </NavStyles>
+    )}
+  </User>
+    
 );
 export default Nav;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Header from '../components/User/Header';
 import OrderOnline from '../components/User/Home/OrderOnline';
 import Specials from '../components/User/Home/Specials';
+import ToSignupComp from '../components/User/Home/ToSignupComp';
 
 const PagesOuterBox = styled.div`
   /* background: red; */
@@ -27,6 +28,7 @@ const Home = () => (
     <Header />
     <AllContent>
       <div>
+      <ToSignupComp />
         <OrderOnline></OrderOnline>
         <Specials></Specials>
       </div>

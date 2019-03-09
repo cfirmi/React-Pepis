@@ -1,17 +1,114 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import Link from 'next/link';
-import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
+import React, { Component } from 'react'
+import styled, { keyframes } from 'styled-components'
+import Router from 'next/router'
+import Link from 'next/link'
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
+import { CURRENT_USER_QUERY } from '../User/User'
 
-const backbutton = '../../static/images/backbtn.svg';
+const backbutton = '../../static/images/backbtn.svg'
 
-const loading = keyframes`
+const SIGNUP_MUTATION = gql`
+  mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
+    signup(email: $email, name: $name, password: $password) {
+      id
+      email
+      name
+    }
+  }
+`;
+ export default class Signup extends Component {
+  state = {
+    name: '',
+    password: '',
+    email: '',
+  }
+  saveToState = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+   render() {
+     return (
+      <div>
+        <BackNav>
+          <Link href="/index">
+          <a>
+            <BackButton src={backbutton} alt="backbtn"/>
+          </a>
+          </Link>
+        </BackNav>
+        <Mutation
+        mutation={SIGNUP_MUTATION}
+        variables={this.state}
+        refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+      >
+          {(signup, { error, loading }) => (
+            <Form 
+            method="post"
+            onSubmit={ async e => {
+              e.preventDefault();
+              await signup();
+              this.setState({name: '', email: '', password: ''})
+              Router.push({
+                pathname: '/index'
+              })
+            }}
+            >
+              <fieldset disabled={loading} aria-busy={loading}>
+                <label htmlFor="email"> 
+                  <p>
+                    Email
+                  </p>
+                  <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="email" 
+                    value={this.state.email} 
+                    onChange={this.saveToState} />
+                </label>
+                <label htmlFor="name">
+                  <p>
+                    Name
+                  </p>
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="name" 
+                    value={this.state.name} 
+                    onChange={this.saveToState} />
+                </label>
+                <label htmlFor="password">
+                  <p>
+                    Password
+                  </p>
+                  <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="password" 
+                    value={this.state.password} 
+                    onChange={this.saveToState}/>
+                </label>
+                <button type="submit">Sign Up!</button>
+              </fieldset>
+            </Form>)
+          }
+        </Mutation>
+        <p style={{textAlign: "center", color: "#FF7000"}}>OR</p>
+        <SignInLink> 
+          <Link href="/signin">
+          <a>
+            Sign In 🍕  
+          </a>
+          </Link>
+        </SignInLink>
+      </div>
+     )
+   }
+ }
+ const loading = keyframes`
   from {
     background-position: 0 0;
     /* rotate: 0; */
   }
-
   to {
     background-position: 100% 100%;
     /* rotate: 360deg; */
@@ -38,8 +135,11 @@ const loading = keyframes`
     display: block;
     background: ${props => props.theme.black};
     width: 50%;
+    color: white;
     padding: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.95rem;
+    letter-spacing: 0.65px;
+    font-weight: 200;
     border: transparent;
     border-bottom: 1px solid ${props => props.theme.grey};
     &:focus {
@@ -57,6 +157,7 @@ const loading = keyframes`
     color: white;
     border: 20px;
     font-size: 1.5rem;
+    cursor: pointer;
     font-weight: 400;
     white-space: nowrap;
     border-radius: 20px;
@@ -112,95 +213,4 @@ const loading = keyframes`
     }
   }
  `;
-
- const SIGNUP_MUTATION = gql`
-  mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
-    signup(email: $email, name: $name, password: $password) {
-      id
-      email
-      name
-    }
-  }
- `;
- 
- export default class Signup extends Component {
-  state = {
-    name: '',
-    password: '',
-    email: '',
-  }
-  saveToState = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-   render() {
-     return (
-      <div>
-        <BackNav>
-          <Link href="/index">
-          <a>
-            <BackButton src={backbutton} alt="backbtn"/>
-          </a>
-          </Link>
-        </BackNav>
-        <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
-          {(signup, { error, loading }) => (
-            <Form 
-            method="post"
-            onSubmit={ async e => {
-              e.preventDefault();
-              await signup();
-              this.setState({name: '', email: '', password: ''})
-            }}
-            >
-              <fieldset disabled={loading} aria-busy={loading}>
-                <label htmlFor="email"> 
-                  <p>
-                    Email
-                  </p>
-                  <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="email" 
-                    value={this.state.email} 
-                    onChange={this.saveToState} />
-                </label>
-                <label htmlFor="name">
-                  <p>
-                    Name
-                  </p>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="name" 
-                    value={this.state.name} 
-                    onChange={this.saveToState} />
-                </label>
-                <label htmlFor="password">
-                  <p>
-                    Password
-                  </p>
-                  <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="password" 
-                    value={this.state.password} 
-                    onChange={this.saveToState}/>
-                </label>
-                <button type="submit">Sign Up!</button>
-              </fieldset>
-            </Form>)
-          }
-        </Mutation>
-        <p style={{textAlign: "center", color: "#FF7000"}}>OR</p>
-        <SignInLink> 
-          <Link href="/index">
-          <a>
-            Sign In 🍕  
-          </a>
-          </Link>
-        </SignInLink>
-      </div>
-     )
-   }
- }
  

@@ -1,11 +1,9 @@
-import Link from 'next/link';
 import Signup from '../components/LoginSignup/Signup';
 
-const Salad = props => (
+const SignupPage = props => (
     <div>
       <Signup />
-
     </div>
 );
 
-export default Salad;
+export default SignupPage;
