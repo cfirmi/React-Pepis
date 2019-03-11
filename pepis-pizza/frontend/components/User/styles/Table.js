@@ -11,8 +11,8 @@ const Table = styled.table`
   th {
     border-bottom: 1px solid ${props => props.theme.offWhite};
     border-right: 1px solid ${props => props.theme.offWhite};
-    padding: 10px 5px;
     position: relative;
+      padding: 5px;
     &:last-child {
       border-right: none;
       width: 150px;
@@ -20,11 +20,25 @@ const Table = styled.table`
         width: 100%;
       }
     }
+    label {
+      /* background: red; */
+      padding: 10px 5px;
+      display: block;
+      /* margin-left: 50%;
+      transform: translateX(-50%); */ 
+      :hover {
+        background: ${props => props.theme.orange};;
+      }
+      input {
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
   tr {
-    &:hover {
+    /* &:hover {
       background: ${props => props.theme.offWhite};
-    }
+    } */
   }
 `;
 

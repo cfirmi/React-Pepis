@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import AdminNav from '../../components/Admin/Navigation/AdminNav';
-import PizzaAdmin from './pizza';
+import PleaseSignin from '../../components/LoginSignup/PleaseSignin';
+import Pizza from './pizza';
 
 const NavComp = styled.div`
   background: red;
@@ -36,8 +37,10 @@ const OuterBox = styled.div`
 
 const AdminHomePage = props => (
   <Naver>
-    <AdminNav />
-    <PizzaAdmin />
+      <PleaseSignin>
+        <AdminNav />
+        <Pizza />
+      </PleaseSignin>
   </Naver>
 );
 

@@ -59,12 +59,10 @@ async signup(parent, args, ctx, info) {
     return user;
   },
 
-
   signout(parent, args, ctx, info) {
     ctx.response.clearCookie('token');
     return { message: 'Goodbye!'};
   },
-
 
   async requestReset(parent, args, ctx, info) {
     // 1. Check if this is a real user
@@ -132,6 +130,37 @@ async signup(parent, args, ctx, info) {
       });
       // 8. return the new user
       return updatedUser;
+    },
+    async updatePermissions(parent, args, ctx, info) {
+      // 1. Check if they are logged in
+      if (!ctx.request.userId) {
+        throw new Error('You must be logged in as a Admin!');
+      }
+      // 2. Query the current user
+      const currentUser = await ctx.db.query.user(
+        {
+          where: {
+            id: ctx.request.userId,
+          },
+        },
+        info
+      );
+      // 3. Check if they have permissions to do this
+      hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE']);
+      // 4. Update the permissions
+      return ctx.db.mutation.updateUser(
+        {
+          data: {
+            permissions: {
+              set: args.permissions,
+            },
+          },
+          where: {
+            id: args.userId,
+          },
+        },
+        info
+      );
     },
   
 };
