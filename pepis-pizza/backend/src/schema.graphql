@@ -7,15 +7,16 @@ type Mutation {
   signup(email: String!, password: String!, name: String!): User!
   signin(email: String!, password: String!): User!
   signout: SuccessMessage
-  requestReset(email: String!):SuccessMessage
+  requestReset(email: String!): SuccessMessage
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
-  updatePermissions(permissions: [Permission], userId: ID!): User
+  updatePermissions(permissions: [Permission!], userId: ID!): User
+  adminAccess(permissions: [Permission!], userId: ID!): SuccessMessage
 }
 
 type Query {
-  hi: String
   me: User
   users: [User]!
+  # adminUsers(permissions: [Permission!], userId: ID!): User!
 }
 
 type User {

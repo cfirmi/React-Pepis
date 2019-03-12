@@ -1,5 +1,4 @@
 
-
 const SizeItem = () => (
   <div style={{background: 'green'}}>
     <h1>This is where You can create a Item size</h1>

@@ -131,6 +131,25 @@ async signup(parent, args, ctx, info) {
       // 8. return the new user
       return updatedUser;
     },
+    async adminAccess(parent, args, ctx, info) {
+      // 1. Check if they are logged in
+      if (!ctx.request.userId) {
+        throw new Error('You must be logged in as a Admin!');
+      }
+      // 2. Query the current user
+      const currentUser = await ctx.db.query.user(
+        {
+          where: {
+            id: ctx.request.userId,
+          },
+        },
+        info
+      );
+      hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE'])
+
+      return { message: 'Thanks! You have access' };
+    },
+
     async updatePermissions(parent, args, ctx, info) {
       // 1. Check if they are logged in
       if (!ctx.request.userId) {

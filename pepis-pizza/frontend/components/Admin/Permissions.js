@@ -97,6 +97,7 @@ class UserPermissions extends React.Component {
       >
         {(updatePermissions, { loading, error }) => (
           <>
+          <Error error={error} />
             {error && <tr><td colspan="8"><Error error={error} /></td></tr>}
             < tr >
               <td>{user.name}</td>
@@ -129,3 +130,4 @@ class UserPermissions extends React.Component {
 }
 
 export default Permissions;
+export { UPDATE_PERMISSIONS_MUTATION }
