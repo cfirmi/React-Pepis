@@ -131,6 +131,26 @@ async signup(parent, args, ctx, info) {
       // 8. return the new user
       return updatedUser;
     },
+    async allowAdminAcess(parent, args, ctx, info) {
+      // 1.check if they are logged in
+      if(!ctx.request.userId) {
+        throw new Error('You must be logged in as an Administrator');
+      }
+      // 2.query the current User
+      const currentUser = await ctx.db.query.user(
+        {
+          where: {
+            id: ctx.request.userId,
+          },
+        },
+        info
+      );
+      //TODO: Add the createItem etc to increase security more permissions you need iguess the better
+      // 3.check if they have the permissions to do this
+      hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE' ]);
+      // 4.allow user to load new page
+      return { message: 'Admin access granted!'};
+    },
     async updatePermissions(parent, args, ctx, info) {
       // 1. Check if they are logged in
       if (!ctx.request.userId) {

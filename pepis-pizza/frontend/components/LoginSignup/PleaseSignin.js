@@ -9,7 +9,7 @@ const PleaseSignIn = (props) => (
     if(!data.me) {
       return (
         <div>
-          <h4 style={{textAlign: 'center', fontWeight: '400', width: '100vw', position: 'absolute', marginTop: '100px'}}>
+          <h4 style={{textAlign: 'center', fontWeight: '400', width: '100vw', position: 'absolute', marginTop: '5%'}}>
           Please Sign in with your Admin account 🤗
           </h4>
           <SigninAdmin />
