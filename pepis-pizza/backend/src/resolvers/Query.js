@@ -18,7 +18,15 @@ const Query = {
     hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
 
     return ctx.db.query.users({},info);
-  }
+  },
+  // async adminUsers(parent, args, ctx, info) {
+  //   if(!ctx.request.userId) {
+  //     throw new Error('You must be logged in')
+  //   }
+  //   hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
+
+  //   return ctx.db.query.users({},info);
+  // }
 
 };
 
