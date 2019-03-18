@@ -17,3 +17,9 @@ type User {
   permissions: [Permission]
 }
 
+type toppingItem {
+  id: ID! @unique
+  name: String!
+  price: [Int!]
+}
+

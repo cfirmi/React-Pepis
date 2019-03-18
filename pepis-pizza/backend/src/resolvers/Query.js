@@ -1,7 +1,8 @@
+const { forwardTo } = require('prisma-binding');
 const { hasPermission } = require('../utils'); 
 
-const Query = {
 
+const Query = {
   me(parent, args, ctx, info) {
     //Check if there is a current user ID
     if(!ctx.request.userId) {

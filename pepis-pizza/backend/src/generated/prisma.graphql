@@ -1,5 +1,9 @@
 # source: https://us1.prisma.sh/pepispizza/pepis-pizza/dev
-# timestamp: Sun Feb 10 2019 18:13:15 GMT-0500 (Eastern Standard Time)
+# timestamp: Sun Mar 17 2019 22:09:12 GMT-0400 (Eastern Daylight Time)
+
+type AggregatetoppingItem {
+  count: Int!
+}
 
 type AggregateUser {
   count: Int!
@@ -18,11 +22,17 @@ scalar Long
 
 type Mutation {
   createUser(data: UserCreateInput!): User!
+  createtoppingItem(data: toppingItemCreateInput!): toppingItem!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updatetoppingItem(data: toppingItemUpdateInput!, where: toppingItemWhereUniqueInput!): toppingItem
   deleteUser(where: UserWhereUniqueInput!): User
+  deletetoppingItem(where: toppingItemWhereUniqueInput!): toppingItem
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  upserttoppingItem(where: toppingItemWhereUniqueInput!, create: toppingItemCreateInput!, update: toppingItemUpdateInput!): toppingItem!
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updateManyToppingItems(data: toppingItemUpdateManyMutationInput!, where: toppingItemWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyToppingItems(where: toppingItemWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -63,8 +73,11 @@ enum Permission {
 
 type Query {
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  toppingItems(where: toppingItemWhereInput, orderBy: toppingItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [toppingItem]!
   user(where: UserWhereUniqueInput!): User
+  toppingItem(where: toppingItemWhereUniqueInput!): toppingItem
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  toppingItemsConnection(where: toppingItemWhereInput, orderBy: toppingItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): toppingItemConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -75,6 +88,206 @@ type Query {
 
 type Subscription {
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  toppingItem(where: toppingItemSubscriptionWhereInput): toppingItemSubscriptionPayload
+}
+
+type toppingItem implements Node {
+  id: ID!
+  name: String!
+  price: [Int!]!
+}
+
+"""A connection to a list of items."""
+type toppingItemConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [toppingItemEdge]!
+  aggregate: AggregatetoppingItem!
+}
+
+input toppingItemCreateInput {
+  name: String!
+  price: toppingItemCreatepriceInput
+}
+
+input toppingItemCreatepriceInput {
+  set: [Int!]
+}
+
+"""An edge in a connection."""
+type toppingItemEdge {
+  """The item at the end of the edge."""
+  node: toppingItem!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum toppingItemOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type toppingItemPreviousValues {
+  id: ID!
+  name: String!
+  price: [Int!]!
+}
+
+type toppingItemSubscriptionPayload {
+  mutation: MutationType!
+  node: toppingItem
+  updatedFields: [String!]
+  previousValues: toppingItemPreviousValues
+}
+
+input toppingItemSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [toppingItemSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [toppingItemSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [toppingItemSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: toppingItemWhereInput
+}
+
+input toppingItemUpdateInput {
+  name: String
+  price: toppingItemUpdatepriceInput
+}
+
+input toppingItemUpdateManyMutationInput {
+  name: String
+  price: toppingItemUpdatepriceInput
+}
+
+input toppingItemUpdatepriceInput {
+  set: [Int!]
+}
+
+input toppingItemWhereInput {
+  """Logical AND on all given filters."""
+  AND: [toppingItemWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [toppingItemWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [toppingItemWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+}
+
+input toppingItemWhereUniqueInput {
+  id: ID
 }
 
 type User implements Node {
