@@ -24,7 +24,7 @@ const StyledPage = styled.div`
   color: #ffffff;
 `;
 const Inner = styled.div`
-  /* background: red; */
+  background: ${props => props.theme.black}
 `;
 
 injectGlobal`
@@ -47,7 +47,8 @@ body {
   margin: 0;
   font-size: 1.5rem;
   line-height: 2;
-  height: 100vh;
+  height: 100%;
+  background: ${props => props.theme.black};
   overflow-x: hidden;
   font-family: 'Poppins';
   a {
