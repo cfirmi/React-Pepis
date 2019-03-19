@@ -11,13 +11,13 @@ type Mutation {
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
   updatePermissions(permissions: [Permission!], userId: ID!): User
   adminAccess(permissions: [Permission!], userId: ID!): SuccessMessage
-  createTopping(name: String!, price: [Int!])
+  # createTopping(name: String!, price: [Int!])
 }
 
 type Query {
   me: User
   users: [User]!
-  topping: toppingItem! 
+  # topping: toppingItem! 
   # adminUsers(permissions: [Permission!], userId: ID!): User!
 }
 

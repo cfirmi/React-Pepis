@@ -147,7 +147,7 @@ async signup(parent, args, ctx, info) {
       );
       hasPermission(currentUser, ['ADMIN', 'PERMISSIONUPDATE'])
 
-      return { message: 'Thanks! You have access' };
+      return adminAccess;
     },
 
     async updatePermissions(parent, args, ctx, info) {
