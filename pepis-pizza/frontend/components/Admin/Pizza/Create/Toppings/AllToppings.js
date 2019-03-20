@@ -12,16 +12,21 @@ import CreateTopping from './CreateTopping'
   justify-content: center;
  `;
 
+
+
  const Title = styled.div`
   width: 100%;
   margin-left: 40px;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 600; 
 `;
 
 const allToppings = () => (
   <div>
-    <Title>ALL TOPPINGS</Title>
+    <div>
+      <CreateTopping></CreateTopping>
+    </div>
+  <Title>ALL TOPPINGS</Title>
   <Outerbox>
     <ItemTopping />
     <ItemTopping />

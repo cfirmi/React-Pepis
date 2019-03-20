@@ -20,7 +20,9 @@ const Form = styled.form`
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
-  width: 500px;
+  width: 90vw;
+  margin-left: 50%; margin-bottom: 50px;
+  transform: translateX(-50%);
   height: 100%;
   label {
     display: block;
@@ -29,10 +31,13 @@ const Form = styled.form`
   input,
   textarea,
   select {
-    width: 100%;
+    display: block;
+    width: 50%;
+    margin-top:5px; margin-left: 50%;
+    transform: translateX(-50%);
     padding: 0.5rem;
     font-size: 1.3rem;
-    height: 30px;
+    height: 40px;
     border-radius: 15px;
     border: 1px solid black;
     text-align: center;

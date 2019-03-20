@@ -1,15 +1,24 @@
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import Form from '../../Styles/Form'
 
 const Item = styled.div`
-  /* background: purple; */
-  height: 250px;
+  height: 100%;
+  width: 100%;
   text-align: center;
   line-height: 15px;
   padding: 2px;
 `;
 
-import React, { Component } from 'react'
+const Button = styled.label`
+  background: blue;
+  height: 100px;
+  input {
+    border: none;
+  }
+`;
+
+
 
 export default class createTopping extends Component {
   state = {
@@ -23,6 +32,22 @@ export default class createTopping extends Component {
     const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
+  uploadFile = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'sickfits');
+  
+    const res = await fetch('https://api.cloudinary.com/v1_1/wesbostutorial/image/upload', {
+      method: 'POST',
+      body: data,
+    });
+    const file = await res.json();
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url,
+    });
+  };
   render() {
     return (
       <Form
@@ -33,7 +58,7 @@ export default class createTopping extends Component {
         {/* <fieldset disabled={} aria-busy={loading}> */}
         <Item>
           <fieldset>
-          <label htmlFor="file">
+          <Button htmlFor="file">
             Image
             <input
               type="file"
@@ -44,9 +69,9 @@ export default class createTopping extends Component {
               onChange={this.uploadFile}
               />
             {this.state.image && (
-              <img width="200" src={this.state.image} alt="Upload Preview" />
+              <img width="230" height="230" src={this.state.image} alt="Upload Preview" />
               )}
-          </label>
+          </Button>
 
             <label htmlFor="title">
               Title
