@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import AdminNav from '../../components/Admin/Navigation/AdminNav'
 import PleaseSignin from '../../components/LoginSignup/PleaseSignin'
-import AllToppings from '../../components/Admin/Pizza/Create/Toppings/AllToppings'
+import AllToppings from '../../components/Admin/Pizza/Read/Toppings/AllToppings'
 
 const ToppingSection = styled.div`
   /* background: red; */

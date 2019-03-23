@@ -181,7 +181,33 @@ async signup(parent, args, ctx, info) {
         info
       );
     },
-  
+  //
+  // toppingItems
+  //
+  async createToppingItem(parent, args, ctx, info) {
+    // if (!ctx.request.userId) {
+    //   throw new Error('You must be logged in as a Admin!');
+    // }
+    const topping = await ctx.db.mutation.createtoppingItem({
+      data: {
+        ...args
+      }
+    }, info);
+    return topping;
+  },
+  updateToppingItem(parent, args, ctx, info) {
+    const updates = { ...args };
+    delete updates.id;
+    return ctx.db.mutation.updatetoppingItem({
+      data: updates,
+      where: {
+        id: args.id
+      }
+    }, info);
+  },
+
+
+
 };
 
 module.exports = Mutations;

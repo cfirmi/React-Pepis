@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/pepispizza/pepis-pizza/dev
-# timestamp: Sun Mar 17 2019 22:09:12 GMT-0400 (Eastern Daylight Time)
+# timestamp: Fri Mar 22 2019 11:07:19 GMT-0400 (Eastern Daylight Time)
 
 type AggregatetoppingItem {
   count: Int!
@@ -94,7 +94,9 @@ type Subscription {
 type toppingItem implements Node {
   id: ID!
   name: String!
-  price: [Int!]!
+  price: Int!
+  image: String
+  largeImage: String
 }
 
 """A connection to a list of items."""
@@ -108,12 +110,11 @@ type toppingItemConnection {
 }
 
 input toppingItemCreateInput {
+  id: ID
   name: String!
-  price: toppingItemCreatepriceInput
-}
-
-input toppingItemCreatepriceInput {
-  set: [Int!]
+  price: Int!
+  image: String
+  largeImage: String
 }
 
 """An edge in a connection."""
@@ -130,6 +131,12 @@ enum toppingItemOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  price_ASC
+  price_DESC
+  image_ASC
+  image_DESC
+  largeImage_ASC
+  largeImage_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -139,7 +146,9 @@ enum toppingItemOrderByInput {
 type toppingItemPreviousValues {
   id: ID!
   name: String!
-  price: [Int!]!
+  price: Int!
+  image: String
+  largeImage: String
 }
 
 type toppingItemSubscriptionPayload {
@@ -183,16 +192,16 @@ input toppingItemSubscriptionWhereInput {
 
 input toppingItemUpdateInput {
   name: String
-  price: toppingItemUpdatepriceInput
+  price: Int
+  image: String
+  largeImage: String
 }
 
 input toppingItemUpdateManyMutationInput {
   name: String
-  price: toppingItemUpdatepriceInput
-}
-
-input toppingItemUpdatepriceInput {
-  set: [Int!]
+  price: Int
+  image: String
+  largeImage: String
 }
 
 input toppingItemWhereInput {
@@ -284,6 +293,108 @@ input toppingItemWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  price: Int
+
+  """All values that are not equal to given value."""
+  price_not: Int
+
+  """All values that are contained in given list."""
+  price_in: [Int!]
+
+  """All values that are not contained in given list."""
+  price_not_in: [Int!]
+
+  """All values less than the given value."""
+  price_lt: Int
+
+  """All values less than or equal the given value."""
+  price_lte: Int
+
+  """All values greater than the given value."""
+  price_gt: Int
+
+  """All values greater than or equal the given value."""
+  price_gte: Int
+  image: String
+
+  """All values that are not equal to given value."""
+  image_not: String
+
+  """All values that are contained in given list."""
+  image_in: [String!]
+
+  """All values that are not contained in given list."""
+  image_not_in: [String!]
+
+  """All values less than the given value."""
+  image_lt: String
+
+  """All values less than or equal the given value."""
+  image_lte: String
+
+  """All values greater than the given value."""
+  image_gt: String
+
+  """All values greater than or equal the given value."""
+  image_gte: String
+
+  """All values containing the given string."""
+  image_contains: String
+
+  """All values not containing the given string."""
+  image_not_contains: String
+
+  """All values starting with the given string."""
+  image_starts_with: String
+
+  """All values not starting with the given string."""
+  image_not_starts_with: String
+
+  """All values ending with the given string."""
+  image_ends_with: String
+
+  """All values not ending with the given string."""
+  image_not_ends_with: String
+  largeImage: String
+
+  """All values that are not equal to given value."""
+  largeImage_not: String
+
+  """All values that are contained in given list."""
+  largeImage_in: [String!]
+
+  """All values that are not contained in given list."""
+  largeImage_not_in: [String!]
+
+  """All values less than the given value."""
+  largeImage_lt: String
+
+  """All values less than or equal the given value."""
+  largeImage_lte: String
+
+  """All values greater than the given value."""
+  largeImage_gt: String
+
+  """All values greater than or equal the given value."""
+  largeImage_gte: String
+
+  """All values containing the given string."""
+  largeImage_contains: String
+
+  """All values not containing the given string."""
+  largeImage_not_contains: String
+
+  """All values starting with the given string."""
+  largeImage_starts_with: String
+
+  """All values not starting with the given string."""
+  largeImage_not_starts_with: String
+
+  """All values ending with the given string."""
+  largeImage_ends_with: String
+
+  """All values not ending with the given string."""
+  largeImage_not_ends_with: String
 }
 
 input toppingItemWhereUniqueInput {
@@ -311,6 +422,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
   email: String!
   password: String!

@@ -20,6 +20,8 @@ type User {
 type toppingItem {
   id: ID! @unique
   name: String!
-  price: [Int!]
+  price: Int!
+  image: String
+  largeImage: String
 }
 

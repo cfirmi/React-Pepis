@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import Form from '../../Styles/Form'
+import { Mutation } from 'react-apollo'
+import gql from 'graphql-tag'
+import Error from '../../../../ErrorMessage'
+import Form, { ImageLabel, NameLabel, PriceLabel, SubmitButton } from '../../../styles/Form'
 
-const Item = styled.div`
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  line-height: 15px;
-  padding: 2px;
-`;
-
-const Button = styled.label`
-  background: blue;
-  height: 100px;
-  input {
-    border: none;
+const CREATE_TOPPINGITEM_MUTATION = gql`
+  mutation CREATE_TOPPINGITEM_MUTATION(
+     $name: String!,
+     $price: Int!, 
+     $image: String, 
+     $largeImage: String
+    ) {
+    createToppingItem(
+      name: $name
+      price: $price
+      image: $image
+      largeImage: $largeImage
+    ) {
+      id
+    }
   }
 `;
 
-
-
 export default class createTopping extends Component {
   state = {
-    title: 'Pepperoni',
-    image: 'dog.jpg',
-    largeImage: 'large-dog.jpg',
-    price: 1000,
+    name: '',
+    image: '',
+    largeImage: '',
+    price: 0,
   };
   handleChange = e => {
     const { name, type, value } = e.target;
@@ -36,9 +38,9 @@ export default class createTopping extends Component {
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
-    data.append('upload_preset', 'sickfits');
+    data.append('upload_preset', 'pepispizza');
   
-    const res = await fetch('https://api.cloudinary.com/v1_1/wesbostutorial/image/upload', {
+    const res = await fetch('https://api.cloudinary.com/v1_1/christian-firmi/image/upload', {
       method: 'POST',
       body: data,
     });
@@ -50,58 +52,68 @@ export default class createTopping extends Component {
   };
   render() {
     return (
-      <Form
+    <Mutation 
+      mutation={CREATE_TOPPINGITEM_MUTATION}
+      variables={this.state}
+    >
+      {(createToppingItem, {loading, error}) => (
+        <Form
         onSubmit={async e => {
           e.preventDefault();
+          const res = await createToppingItem();
+          console.log(res)
         }}
-      >
-        {/* <fieldset disabled={} aria-busy={loading}> */}
-        <Item>
-          <fieldset>
-          <Button htmlFor="file">
-            Image
-            <input
-              type="file"
-              id="file"
-              name="file"
-              placeholder="Upload an image"
-              required
-              onChange={this.uploadFile}
-              />
-            {this.state.image && (
-              <img width="230" height="230" src={this.state.image} alt="Upload Preview" />
-              )}
-          </Button>
+        >
+        <Error error={error} />
+ 
+            <fieldset disabled={loading} aria-busy={loading}>
+              <h2>Create Toppings</h2>
+              <NameLabel htmlFor="name">
+                Name
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Topping name"
+                  required
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                  />
+              </NameLabel>
 
-            <label htmlFor="title">
-              Title
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Title"
-                required
-                value={this.state.title}
-                onChange={this.handleChange}
-                />
-            </label>
-
-            <label htmlFor="price">
-                  Price
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    placeholder="Price"
-                    required
-                    value={this.state.price}
-                    onChange={this.handleChange}
-                    />
-                </label>
-                <button type="submit">Submit</button>
-          </fieldset>  
-        </Item>
-      </Form>
+              <PriceLabel htmlFor="price">
+                Price
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  placeholder="Price"
+                  required
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                  />
+              </PriceLabel>
+              <ImageLabel htmlFor="file" className="custom-file-upload">
+                Select the image topping
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                  />
+                {this.state.image && (
+                  <img width="230" height="230" src={this.state.image} alt="Upload Preview" />
+                  )}
+              </ImageLabel>
+              <SubmitButton type="submit">Submit</SubmitButton>
+            </fieldset>  
+        </Form>
+      )}
+    </Mutation>
     )
   }
 }
+
+export { CREATE_TOPPINGITEM_MUTATION };
